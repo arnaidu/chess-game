@@ -4,9 +4,7 @@ const ChessboardRow = ({ type, val }) => {
     if (type === "odd") {
         return (
             <tr>
-                <td className="light" value={val}>
-                    &#9812;
-                </td>
+                <td className="light" value={val}></td>
                 <td className="dark"></td>
                 <td className="light"></td>
                 <td className="dark"></td>
