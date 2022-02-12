@@ -1,116 +1,261 @@
 import Piece from "./Piece";
 
-// initial state of all pieces on the board
-export const initBoardStateWhitePersp = {
-    whiteKing: <Piece specificPiece="white-king" boardCoordinate="e1"></Piece>,
-    whiteQueen: <Piece specificPiece="white-queen" boardCoordinate="d1"></Piece>,
-    whiteRook1: <Piece specificPiece="white-rook" boardCoordinate="a1"></Piece>,
-    whiteRook2: <Piece specificPiece="white-rook" boardCoordinate="h1"></Piece>,
-    whiteBishop1: <Piece specificPiece="white-bishop" boardCoordinate="c1"></Piece>,
-    whiteBishop2: <Piece specificPiece="white-bishop" boardCoordinate="f1"></Piece>,
-    whiteKnight1: <Piece specificPiece="white-knight" boardCoordinate="b1"></Piece>,
-    whiteKnight2: <Piece specificPiece="white-knight" boardCoordinate="g1"></Piece>,
-    whitePawn1: <Piece specificPiece="white-pawn" boardCoordinate="a2"></Piece>,
-    whitePawn2: <Piece specificPiece="white-pawn" boardCoordinate="b2"></Piece>,
-    whitePawn3: <Piece specificPiece="white-pawn" boardCoordinate="c2"></Piece>,
-    whitePawn4: <Piece specificPiece="white-pawn" boardCoordinate="d2"></Piece>,
-    whitePawn5: <Piece specificPiece="white-pawn" boardCoordinate="e2"></Piece>,
-    whitePawn6: <Piece specificPiece="white-pawn" boardCoordinate="f2"></Piece>,
-    whitePawn7: <Piece specificPiece="white-pawn" boardCoordinate="g2"></Piece>,
-    whitePawn8: <Piece specificPiece="white-pawn" boardCoordinate="h2"></Piece>,
-
-    blackKing: <Piece specificPiece="black-king" boardCoordinate="e8"></Piece>,
-    blackQueen: <Piece specificPiece="black-queen" boardCoordinate="d8"></Piece>,
-    blackRook1: <Piece specificPiece="black-rook" boardCoordinate="a8"></Piece>,
-    blackRook2: <Piece specificPiece="black-rook" boardCoordinate="h8"></Piece>,
-    blackBishop1: <Piece specificPiece="black-bishop" boardCoordinate="c8"></Piece>,
-    blackBishop2: <Piece specificPiece="black-bishop" boardCoordinate="f8"></Piece>,
-    blackKnight1: <Piece specificPiece="black-knight" boardCoordinate="b8"></Piece>,
-    blackKnight2: <Piece specificPiece="black-knight" boardCoordinate="g8"></Piece>,
-    blackPawn1: <Piece specificPiece="black-pawn" boardCoordinate="a7"></Piece>,
-    blackPawn2: <Piece specificPiece="black-pawn" boardCoordinate="b7"></Piece>,
-    blackPawn3: <Piece specificPiece="black-pawn" boardCoordinate="c7"></Piece>,
-    blackPawn4: <Piece specificPiece="black-pawn" boardCoordinate="d7"></Piece>,
-    blackPawn5: <Piece specificPiece="black-pawn" boardCoordinate="e7"></Piece>,
-    blackPawn6: <Piece specificPiece="black-pawn" boardCoordinate="f7"></Piece>,
-    blackPawn7: <Piece specificPiece="black-pawn" boardCoordinate="g7"></Piece>,
-    blackPawn8: <Piece specificPiece="black-pawn" boardCoordinate="h7"></Piece>,
+const whitePieces = {
+    whiteKing: ["white-king", [7, 4]],
+    whiteQueen: ["white-queen", [7, 3]],
+    whiteRook1: ["white-rook", [7, 0]],
+    whiteRook2: ["white-rook", [7, 7]],
+    whiteBishop1: ["white-bishop", [7, 2]],
+    whiteBishop2: ["white-bishop", [7, 5]],
+    whiteKnight1: ["white-knight", [7, 1]],
+    whiteKnight2: ["white-knight", [7, 6]],
+    whitePawn1: ["white-pawn", [6, 0]],
+    whitePawn2: ["white-pawn", [6, 1]],
+    whitePawn3: ["white-pawn", [6, 2]],
+    whitePawn4: ["white-pawn", [6, 3]],
+    whitePawn5: ["white-pawn", [6, 4]],
+    whitePawn6: ["white-pawn", [6, 5]],
+    whitePawn7: ["white-pawn", [6, 6]],
+    whitePawn8: ["white-pawn", [6, 7]],
 };
 
-// initial state of all pieces on the board -- actually for this maybe we just flip board and pseudo elements and stuff
-// -- this way the css coordinates remain same, just output view different (i.e. different axis)
-export const initBoardStateBlackPersp = {
-    whiteKing: <Piece specificPiece="king" boardCoordinate="e1"></Piece>,
-    whiteQueen: <Piece specificPiece="king" boardCoordinate="d1"></Piece>,
-    whiteRook1: <Piece specificPiece="king" boardCoordinate="a1"></Piece>,
-    whiteRook2: <Piece specificPiece="king" boardCoordinate="h1"></Piece>,
-    whiteBishop1: <Piece specificPiece="king" boardCoordinate="c1"></Piece>,
-    whiteBishop2: <Piece specificPiece="king" boardCoordinate="f1"></Piece>,
-    whiteKnight1: <Piece specificPiece="king" boardCoordinate="b1"></Piece>,
-    whiteKnight2: <Piece specificPiece="king" boardCoordinate="g1"></Piece>,
-    whitePawn1: <Piece specificPiece="king" boardCoordinate="a2"></Piece>,
-    whitePawn2: <Piece specificPiece="king" boardCoordinate="b2"></Piece>,
-    whitePawn3: <Piece specificPiece="king" boardCoordinate="c2"></Piece>,
-    whitePawn4: <Piece specificPiece="king" boardCoordinate="d2"></Piece>,
-    whitePawn5: <Piece specificPiece="king" boardCoordinate="e2"></Piece>,
-    whitePawn6: <Piece specificPiece="king" boardCoordinate="f2"></Piece>,
-    whitePawn7: <Piece specificPiece="king" boardCoordinate="g2"></Piece>,
-    whitePawn8: <Piece specificPiece="king" boardCoordinate="h2"></Piece>,
-
-    blackKing: <Piece specificPiece="king" boardCoordinate="e8"></Piece>,
-    blackQueen: <Piece specificPiece="king" boardCoordinate="d8"></Piece>,
-    blackRook1: <Piece specificPiece="king" boardCoordinate="a8"></Piece>,
-    blackRook2: <Piece specificPiece="king" boardCoordinate="h8"></Piece>,
-    blackBishop1: <Piece specificPiece="king" boardCoordinate="c8"></Piece>,
-    blackBishop2: <Piece specificPiece="king" boardCoordinate="f8"></Piece>,
-    blackKnight1: <Piece specificPiece="king" boardCoordinate="b8"></Piece>,
-    blackKnight2: <Piece specificPiece="king" boardCoordinate="g8"></Piece>,
-    blackPawn1: <Piece specificPiece="king" boardCoordinate="a7"></Piece>,
-    blackPawn2: <Piece specificPiece="king" boardCoordinate="b7"></Piece>,
-    blackPawn3: <Piece specificPiece="king" boardCoordinate="c7"></Piece>,
-    blackPawn4: <Piece specificPiece="king" boardCoordinate="d7"></Piece>,
-    blackPawn5: <Piece specificPiece="king" boardCoordinate="e7"></Piece>,
-    blackPawn6: <Piece specificPiece="king" boardCoordinate="f7"></Piece>,
-    blackPawn7: <Piece specificPiece="king" boardCoordinate="g7"></Piece>,
-    blackPawn8: <Piece specificPiece="king" boardCoordinate="h7"></Piece>,
+const blackPieces = {
+    blackKing: ["black-king", [0, 4]],
+    blackQueen: ["black-queen", [0, 3]],
+    blackRook1: ["black-rook", [0, 0]],
+    blackRook2: ["black-rook", [0, 7]],
+    blackBishop1: ["black-bishop", [0, 2]],
+    blackBishop2: ["black-bishop", [0, 5]],
+    blackKnight1: ["black-knight", [0, 1]],
+    blackKnight2: ["black-knight", [0, 6]],
+    blackPawn1: ["black-pawn", [1, 0]],
+    blackPawn2: ["black-pawn", [1, 1]],
+    blackPawn3: ["black-pawn", [1, 2]],
+    blackPawn4: ["black-pawn", [1, 3]],
+    blackPawn5: ["black-pawn", [1, 4]],
+    blackPawn6: ["black-pawn", [1, 5]],
+    blackPawn7: ["black-pawn", [1, 6]],
+    blackPawn8: ["black-pawn", [1, 7]],
 };
 
-export const InitBoardState = () => {
-    return (
-        <>
-            {initBoardStateWhitePersp.blackBishop1}
-            {initBoardStateWhitePersp.blackBishop2}
-            {initBoardStateWhitePersp.blackKnight1}
-            {initBoardStateWhitePersp.blackKnight2}
-            {initBoardStateWhitePersp.blackKing}
-            {initBoardStateWhitePersp.blackQueen}
-            {initBoardStateWhitePersp.blackRook1}
-            {initBoardStateWhitePersp.blackRook2}
-            {initBoardStateWhitePersp.blackPawn1}
-            {initBoardStateWhitePersp.blackPawn2}
-            {initBoardStateWhitePersp.blackPawn3}
-            {initBoardStateWhitePersp.blackPawn4}
-            {initBoardStateWhitePersp.blackPawn5}
-            {initBoardStateWhitePersp.blackPawn6}
-            {initBoardStateWhitePersp.blackPawn7}
-            {initBoardStateWhitePersp.blackPawn8}
-
-            {initBoardStateWhitePersp.whiteBishop1}
-            {initBoardStateWhitePersp.whiteBishop2}
-            {initBoardStateWhitePersp.whiteKnight1}
-            {initBoardStateWhitePersp.whiteKnight2}
-            {initBoardStateWhitePersp.whiteKing}
-            {initBoardStateWhitePersp.whiteQueen}
-            {initBoardStateWhitePersp.whiteRook1}
-            {initBoardStateWhitePersp.whiteRook2}
-            {initBoardStateWhitePersp.whitePawn1}
-            {initBoardStateWhitePersp.whitePawn2}
-            {initBoardStateWhitePersp.whitePawn3}
-            {initBoardStateWhitePersp.whitePawn4}
-            {initBoardStateWhitePersp.whitePawn5}
-            {initBoardStateWhitePersp.whitePawn6}
-            {initBoardStateWhitePersp.whitePawn7}
-            {initBoardStateWhitePersp.whitePawn8}
-        </>
-    );
+export const initBoardState = {
+    white: whitePieces,
+    black: blackPieces,
+    turn: 0,
+    prevMove: {
+        white: "",
+        black: "",
+    },
 };
+
+export const placePiecesOnBoard = (boardState, setBoardState, setReverseBoardState) => {
+    const pieces = [];
+    for (var key in boardState) {
+        pieces.push(
+            <Piece
+                specificPiece={boardState[key][0]}
+                boardCoordinate={boardState[key][1]}
+                setBoardState={setBoardState}
+                setReverseBoardState={setReverseBoardState}
+            />
+        );
+    }
+
+    return <>{pieces}</>;
+};
+
+/*
+{
+                <Piece
+                    specificPiece={boardState.blackBishop1[0]}
+                    boardCoordinat={boardState.blackBishop1[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.blackBishop2[0]}
+                    boardCoordinat={boardState.blackBishop2[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.blackKnight1[0]}
+                    boardCoordinat={boardState.blackKnight1[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.blackKnight2[0]}
+                    boardCoordinat={boardState.blackKnight2[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.blackKing[0]}
+                    boardCoordinat={boardState.blackKing[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.blackQueen[0]}
+                    boardCoordinat={boardState.blackQueen[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.blackRook1[0]}
+                    boardCoordinat={boardState.blackRook1[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.blackRook2[0]}
+                    boardCoordinat={boardState.blackRook2[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.blackPawn1[0]}
+                    boardCoordinat={boardState.blackPawn1[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.blackPawn2[0]}
+                    boardCoordinat={boardState.blackPawn2[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.blackPawn3[0]}
+                    boardCoordinat={boardState.blackPawn3[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.blackPawn4[0]}
+                    boardCoordinat={boardState.blackPawn4[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.blackPawn5[0]}
+                    boardCoordinat={boardState.blackPawn5[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.blackPawn6[0]}
+                    boardCoordinat={boardState.blackPawn6[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.blackPawn7[0]}
+                    boardCoordinat={boardState.blackPawn7[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.blackPawn8[0]}
+                    boardCoordinat={boardState.blackPawn81[1]}
+                />
+            }
+
+            {
+                <Piece
+                    specificPiece={boardState.whiteBishop1[0]}
+                    boardCoordinat={boardState.whiteBishop1[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.whiteBishop2[0]}
+                    boardCoordinat={boardState.whiteBishop2[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.whiteKnight1[0]}
+                    boardCoordinat={boardState.whiteKnight1[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.whiteKnight2[0]}
+                    boardCoordinat={boardState.whiteKnight2[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.whiteKing[0]}
+                    boardCoordinat={boardState.whiteKing[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.whiteQueen[0]}
+                    boardCoordinat={boardState.whiteQueen[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.whiteRook1[0]}
+                    boardCoordinat={boardState.whiteRook1[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.whiteRook2[0]}
+                    boardCoordinat={boardState.whiteRook2[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.whitePawn1[0]}
+                    boardCoordinat={boardState.whitePawn1[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.whitePawn2[0]}
+                    boardCoordinat={boardState.whitePawn2[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.whitePawn3[0]}
+                    boardCoordinat={boardState.whitePawn3[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.whitePawn4[0]}
+                    boardCoordinat={boardState.whitePawn4[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.whitePawn5[0]}
+                    boardCoordinat={boardState.whitePawn5[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.whitePawn6[0]}
+                    boardCoordinat={boardState.whitePawn6[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.whitePawn7[0]}
+                    boardCoordinat={boardState.whitePawn7[1]}
+                />
+            }
+            {
+                <Piece
+                    specificPiece={boardState.whitePawn8[0]}
+                    boardCoordinat={boardState.whitePawn81[1]}
+                />
+            }
+            */

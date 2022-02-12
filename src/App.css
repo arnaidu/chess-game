@@ -75,7 +75,7 @@ body {
 .piece {
     position: absolute;
     width: var(--piece-width);
-    height: var(--piece-height);
+    height: calc(var(--piece-height) + var(--init-top));
     z-index: 1;
     top: var(--init-top);
     background-size: contain;
@@ -120,6 +120,61 @@ body {
 }
 .white-pawn {
     background-image: url("./images/wP.svg");
+}
+
+/*
+.mouse-over:active {
+    box-shadow: inset 1px 1px 3px black, inset -1px 0px 3px black, inset 0px -1px 3px black;
+}
+*/
+
+.draggable:hover {
+    cursor: move;
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+/* ----- */
+
+.empty {
+    display: inline-block;
+    position: relative;
+    height: 500px;
+    width: 500px;
+    background-color: white;
+    /*overflow: hidden;*/
+}
+
+/*
+.empty:hover {
+    outline: 3px dotted black;
+}
+*/
+
+.fill {
+    background-image: url("http://source.unsplash.com/random/100x100");
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background-repeat: no-repeat;
+    cursor: grab;
+}
+
+.hovered {
+    background: #f4f4f4;
+    border-style: dashed;
+}
+
+.invisible {
+    display: none;
+}
+
+/* ----- */
+
+.draggable:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
 }
 
 .dark {
